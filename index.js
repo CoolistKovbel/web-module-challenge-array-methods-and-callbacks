@@ -8,15 +8,21 @@ Practice accessing data by console.log-ing the following pieces of data note.
 💡 HINT: You may want to filter the data first 😉*/
 
 //(a) Home Team name for 2014 world cup final
+let homeTeams = fifaData.filter(team => team.Year === 2014 && team.Stage === "Final")
+console.log(homeTeams)
+
+console.log(homeTeams[0]['Home Team Name'])
 
 //(b) Away Team name for 2014 world cup final
+console.log(homeTeams[0]['Away Team Name'])
 
 //(c) Home Team goals for 2014 world cup final
-
+console.log(homeTeams[0]['Home Team Goals'])
 //(d) Away Team goals for 2014 world cup final
+console.log(homeTeams[0]['Away Team Goals'])
 
 //(e) Winner of 2014 world cup final */
-
+console.log(homeTeams[0]['Win conditions'])
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use getFinals to do the following:
@@ -26,9 +32,18 @@ Use getFinals to do the following:
 💡 HINT - you should be looking at the stage key inside of the objects
 */
 
-function getFinals(/* code here */) {
-    /* code here */
+function getFinals(array) {
+    let teams = [];
+    array.filter(team => {
+        if(team.Stage.includes('Final')){
+            console.log(team)
+            teams.push(team)
+        }
+    })
+    return teams
  }
+
+console.log(getFinals(fifaData))
 
 
 
