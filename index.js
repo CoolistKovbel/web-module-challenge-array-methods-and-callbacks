@@ -54,7 +54,7 @@ Use the higher-order function called getYears to do the following:
 
 function getYears(array, cb) {
     let years = []
-    cb(array).map(team => [team.Year])
+    cb(array).map(team => years.push(team.Year))
     return years
 }
 console.log(getYears(fifaData, getFinals))
