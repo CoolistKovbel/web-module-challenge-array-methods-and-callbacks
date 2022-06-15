@@ -98,6 +98,7 @@ function getWinnersByYear(array, cbFinal, cbYears, cbWinner) {
     let arr = []
     let years = cbYears(array, cbFinal)
     let winners = cbWinner(array, cbFinal)
+
     years.forEach((element, index ) => {
         arr.push(`In ${element}, ${winners[index]} won the world cup!`)
     })
@@ -120,11 +121,15 @@ Use the higher order function getAverageGoals to do the following:
  
 */
 
-function getAverageGoals(/* code here */) {
-    /* code here */
+function getAverageGoals(cb) {
+    let totalHome = cb.reduce((previous, currentvalue) => previous += currentvalue["Home Team Goals"],0) / cb.length 
+    let totalAway = cb.reduce((previous, currentvalue) => previous += currentvalue["Away Team Goals"],0) / cb.length
+    let average = totalHome + totalAway
+    return average.toFixed(2)
+    
  }
 
-
+console.log(getAverageGoals(getFinals(fifaData)))
 
 
 /// 🥅 STRETCH 🥅 ///
